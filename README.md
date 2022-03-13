@@ -1,4 +1,4 @@
-# matrizMath
+# matrixMath
 ## Functions
 * Add Matrixes
 * Multiply Matrixes
