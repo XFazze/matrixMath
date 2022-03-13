@@ -3,4 +3,4 @@
 * Add Matrixes
 * Multiply Matrixes
 * Multiply Matrix by number
-* Transform Matrix
+* Transpose Matrix
