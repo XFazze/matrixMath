@@ -1,5 +1,5 @@
 from copy import deepcopy
-
+from functions.basic import *
 
 # column by column
 # pivot check
@@ -13,42 +13,40 @@ from copy import deepcopy
 def gaussEleminering(A, B):
     for columnI in range(len(A[0])):
         A, B = checkColumn(columnI, A, B)
-        p(A)
-        print(B)
-        print('\n')
-    print('going up again')
+
     for rowI in range(1, len(A)):
         rowI = len(A)-rowI-1
         A, B = checkRow(A, rowI, B)
-        p(A)
-        print(B)
-        print('\n')
+    return A, B
 
 
 def checkRow(A, rowI, B):
     for i in range(rowI+1, len(A[rowI])):
-        B[rowI][0] = B[rowI][0] + B[i][0] * A[rowI][i]
+        B[rowI][0] = B[rowI][0] - B[i][0] * A[rowI][i]
         A[rowI][i] = 0
     return A, B
 
 
 def checkColumn(index, A, B):
-    A = pivot(A, index)
+    A, B = pivot(A, index, B)
     A, B = inverse(A, index, B)
     A = getZeros(A, index, B)
     return A, B
 
 
-def pivot(A, index):
+def pivot(A, index, B):
     if index == len(A) - 1:
-        return A
+        return A, B
     higest = [0, index, A[index]]
     for i in range(index, len(A)):
         if higest[0] < abs(A[i][index]):
             higest = [A[i][index], i, A[i]]
     A[higest[1]] = A[index]
     A[index] = higest[2]
-    return A
+    Bsave = B[index]
+    B[index] = B[higest[1]]
+    B[higest[1]] = Bsave
+    return A, B
 
 
 def inverse(A, index, B):

@@ -1,3 +1,6 @@
+from copy import deepcopy
+
+
 def add(a, b):
     if len(a) != len(b) and len(b) != 0:
         return False
@@ -52,3 +55,10 @@ def t(A):
 def p(A):
     for i in A:
         print(i)
+
+
+def pp(A, B):
+    if len(A) != len(B):
+        return False
+    for i in range(len(A)):
+        print(A[i], B[i])
