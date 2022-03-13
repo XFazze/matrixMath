@@ -1,3 +1,4 @@
+from exampleMatrixes.gauss import *
 from exampleMatrixes.basic import *
 from functions.basic import *
 from functions.gaussElimination import *
