@@ -1,5 +1,4 @@
 from copy import deepcopy
-from exampleMatrixes import *
 
 
 def add(a, b):
@@ -58,6 +57,8 @@ def p(A):
         print(i)
 
 
-p(add(k(A3x3, 3), k(B3x3, 2)))
-#p(multi(A3x3, B3x3))
-# p(t(A3x3))
+def pp(A, B):
+    if len(A) != len(B):
+        return False
+    for i in range(len(A)):
+        print(A[i], B[i])
