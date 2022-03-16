@@ -44,6 +44,8 @@ def pivot(A, index, B):
     A[higest[1]] = A[index]
     A[index] = higest[2]
     Bsave = B[index]
+    if higest[1] > len(B)-1:
+        raise Exception('There is no solution')
     B[index] = B[higest[1]]
     B[higest[1]] = Bsave
     return A, B
@@ -51,6 +53,8 @@ def pivot(A, index, B):
 
 def inverse(A, index, B):
     num = A[index][index]
+    if num == 0:
+        raise Exception('There is infinite solutions')
     invNum = 1/num
     B[index][0] *= invNum
     row = []
